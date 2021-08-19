@@ -1,0 +1,1 @@
+There's a bug preventing fetching > 100 results caused by a limitation of the `first` argument of GitHub search query. I'd solve it by utilizing the `after` argument (as `offset` is not supported) but I ran out of time.

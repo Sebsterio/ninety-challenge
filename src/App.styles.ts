@@ -19,6 +19,11 @@ export const useAppStyles = makeStyles({
 		fontWeight: 700,
 		textDecoration: "none",
 	},
+	spinner: {
+		position: "absolute",
+		left: 10,
+		top: 10,
+	},
 	"@keyframes gradient": {
 		"0%": {
 			backgroundPosition: "0% 50%",
