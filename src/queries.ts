@@ -8,6 +8,7 @@ export const GET_REPOS_BY_SEARCH_QUERY = gql`
 					name
 					forkCount
 					stargazerCount
+					homepageUrl
 				}
 			}
 		}
