@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 
-import { GET_REPOS_BY_SEARCH_QUERY } from "../../queries";
+import { GET_REPOS_BY_SEARCH_QUERY } from "./queries";
 
 interface Repo {
 	name: string;
@@ -10,21 +10,22 @@ interface Repo {
 	homepageUrl: string;
 }
 
-export const Table = () => {
+export const App = () => {
 	const { loading, error, data } = useQuery(GET_REPOS_BY_SEARCH_QUERY, {
 		variables: { query: "topic:react" },
 	});
 
-	if (error) console.log(error);
-
 	if (loading) return <p>Loading...</p>;
 
-	if (error) return <p>Error</p>;
+	if (error) {
+		console.log(error);
+		return <p>Error</p>;
+	}
 
 	const { nodes: repos } = data.search;
 
 	return (
-		<div>
+		<div className="App">
 			{repos?.length &&
 				repos.map(({ name, forkCount, stargazerCount, homepageUrl }: Repo) => (
 					<div key={name}>
